@@ -44,7 +44,7 @@ class ProxyCoffee(CoffeePoint):
         return True
 
     def save_request(self, request):
-        with open("data/coffeelogger.json", 'a') as   f:
+        with open("../data/coffeelogger.json", 'a') as   f:
             json.dump(request, f, ensure_ascii=False)
 
 def client_code(original: CoffeePoint):

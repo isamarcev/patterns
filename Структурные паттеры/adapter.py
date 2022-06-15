@@ -4,16 +4,16 @@ class Electricity:
 
 
 class Charger:
-    def __init__(self, power):
-        self.power = power
+    def __init__(self, needed):
+        self.needed = needed
 
-    def charging(self):
-        if 180 <=  self.power <= 230:
-            print('Charign ON')
-        elif self.power > 230:
+    def charging(self, power):
+        if self.needed + 10 < power:
             print('you should buy new Charger')
+        elif self.needed - 40 < power < self.needed + 9:
+            print('Charging ON')
         else:
-            print('Change coefficient of transform')
+            print('Change coefficient transform')
 
 class Transformator(Electricity):
     coefficient = 0.2
@@ -24,8 +24,8 @@ class Transformator(Electricity):
 
 if __name__ == "__main__":
     power = Transformator(1000).transform()
-    charg = Charger(power)
-    charg.charging()
+    charg = Charger(220)
+    charg.charging(power)
 
 
 

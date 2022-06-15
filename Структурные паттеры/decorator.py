@@ -20,8 +20,6 @@ class ShelvesRackFactory(RackFactory):
 
 class SalesCompany(RackFactory):
 
-    # _factory: RackFactory = None
-
     def __init__(self, factory: RackFactory):
         self._factory = factory
 
@@ -55,9 +53,14 @@ def client_code(factory: RackFactory):
 if __name__ == "__main__":
 
     typefactory =ShelvesRackFactory(200, 300, 5, 2 ** 8)
+    print('Original:')
+    client_code(typefactory)
+
+    print('BestSeller:')
 
     bestseller =BestSeller(typefactory)
     client_code(bestseller)
+    print('Second Seller:')
 
     secondseller = SecontSellerCO(typefactory)
     client_code(secondseller)

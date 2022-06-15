@@ -1,13 +1,9 @@
 import copy
 from abc import ABC, abstractmethod
 
-from Abstract_factory import ShopRacksFactory
-from Factory_method import WorkShopMetal
-
-
 class Prototype(ABC):
-    def __init__(self, data):
-        self.data = data
+    def __init__(self, object):
+        self.object = object
 
     @abstractmethod
     def clone(self):
@@ -15,14 +11,15 @@ class Prototype(ABC):
 
 class ConcretePrototype(Prototype):
     def clone(self):
-        return copy.deepcopy(self.data)
+        return copy.deepcopy(self.object)
 
 
 if __name__ == "__main__":
     info = [1, 2, 3, [2, 4, 5]]
     x = ConcretePrototype(info).clone()
     print('x is info?', x is info)
-    print('x= ', x)
+    print('x = ', x)
+    print('adding new element to info')
     info.append('Agent')
     print('info =', info, '!    x = ', x)
 
